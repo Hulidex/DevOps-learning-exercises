@@ -8,6 +8,9 @@ pipeline{
             }
         }
         stage ('Test'){
+            environment {
+                OpenWeatherMapApiToken = credentials('OpenWeatherMapRapidAPI-token')
+            }
             steps {
                 sh 'dotnet test'
             }
