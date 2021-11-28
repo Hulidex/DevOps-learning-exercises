@@ -35,4 +35,9 @@ pipeline{
             }
         }
     }
+    post { // This chunk is executed at the end of the pipeline
+        success { // Save published executable if all the stages are succesful
+            archiveArtifacts artifacts: "${PublishPath}", fingerprint: true
+        }
+    }
 }
