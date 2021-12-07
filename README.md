@@ -162,9 +162,10 @@ Particularly I'm doing this exercise using my personal computer which has instal
 
 # Exercises
 
-WIP
-
 At the moment the exercises that are available are:
 
-- Basic CI/CD Pipeline with Jenkins
+1. Jenkins multibranch pipeline:
+    ```bash
+    git switch exercise/CICD/01-Jenkins-Multi-branch-pipeline 
+    ```
 
