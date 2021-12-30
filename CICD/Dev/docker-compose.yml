@@ -1,0 +1,32 @@
+version: '3.9'
+services:
+  # This service will run our project in development mode
+  openweathermap:
+    build: .
+    ports:
+      - "8123:8123" # WebUI (Angular) listening port
+      - "59178:59178" # REST API (dotnet core) listening port 
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    volumes:
+      # The source code will be available in this volume
+      - /home/hulidex/repositories/DevOps-learning-exercises/WebUI:/home/dev/src/WebUI
+    depends_on:
+      - db
+  # Database service
+  db:
+    image: postgres:bullseye
+    restart: always
+    environment:
+      - POSTGRES_DB=openweathermap
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+  # End poing for basic database management
+  adminer:
+    image: adminer:4.8.1
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+
