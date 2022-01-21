@@ -14,10 +14,11 @@ Finally, I would like to make it clear: English is not my native language. If yo
 
 ## Description
 
-The repository consists basically of two projects:
+The repository consists basically of three projects:
 
 - **OpenWeatherMap**: Directory that contains the main project.
 - **OpenWeatherMap.Tests**: Directory that contains a Test project for testing the main project.
+- **WebUI**: Directory that contains a Web based project which combines Angular.js with ASP .Net core
 
 ### OpenWeatherMap Project
 
@@ -25,10 +26,22 @@ It is the code related to the console application, and It's just an HTTP client 
 
 Explaining the different HTTP calls that the API can handle and how to perform them, is out of the scope of this project. You just have to know that the application, abstracts you from all that techie stuff: **It is capable of making requests using an intermediate API to gather weather information about a specific point in the world and finally, it displays the gathered information in the console**.
 
-
 ### OpenWeatherMap.Tests Project.
 
 The project contains some behavior tests.
+
+### WebUI
+
+At the moment this project contains the Angular + ASP Net core template that can be generated with the command:
+
+```bash
+dotnet new angular -n WebUI --no-https -f net6.0 --force
+```
+I applied some modifications to the original template:
+    - I updated the embedded Angular project to a new version
+    - I changed some configurations related to the application's port mapping.
+    - (PENDING) Create a Web User Interface for the OpenWeatherMap console app and persist some
+    information in a database. This will emulate a more complex application
 
 ## Running the application
 
